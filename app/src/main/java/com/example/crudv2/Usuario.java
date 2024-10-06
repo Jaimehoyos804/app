@@ -2,9 +2,10 @@ package com.example.crudv2;
 
 import com.orm.SugarRecord;
 
-public class Usuario extends SugarRecord{
+public class Usuario extends SugarRecord {
 
     //Atributos entidad
+    private String numeroDocumento;
     private String nombre;
     private String email;
     private String clave;
@@ -13,11 +14,20 @@ public class Usuario extends SugarRecord{
     public Usuario() {
     }
 
-    public Usuario(String nombre, String email, String clave, String telefono) {
+    public Usuario(String numeroDocumento, String nombre, String email, String clave, String telefono) {
+        this.numeroDocumento = numeroDocumento;
         this.nombre = nombre;
         this.email = email;
         this.clave = clave;
         this.telefono = telefono;
+    }
+
+    public String getnumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setnumeroDocumento(String numeroDocumento) {
+        numeroDocumento = numeroDocumento;
     }
 
     public String getNombre() {
@@ -52,3 +62,4 @@ public class Usuario extends SugarRecord{
         this.telefono = telefono;
     }
 }
+

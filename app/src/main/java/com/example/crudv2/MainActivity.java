@@ -1,6 +1,7 @@
 package com.example.crudv2;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -49,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else{
-            Toast.makeText(this, "Datos invalidos por favor revise", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Datos invalidos por favor revise", Toast.LENGTH_SHORT).show();
+            Alerta("Correo o contraseña invalidos!!");
         }
         txtclave.setText("");
 
@@ -57,6 +60,20 @@ public class MainActivity extends AppCompatActivity {
     public void Salir (View view){
 
         System.exit(0);
+    }
+    public void Alerta(String Mensaje){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Alerta");
+        builder.setMessage(Mensaje);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }

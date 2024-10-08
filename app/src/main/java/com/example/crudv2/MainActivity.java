@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         String email = txtcorreo.getText().toString();
         String clave = txtclave.getText().toString();
 
+               
         if(email.equals("admin") && clave.equals("abcd")){
             Intent intent = new Intent(MainActivity.this, PantallaInicio.class);
             startActivity(intent);
